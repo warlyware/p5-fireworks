@@ -7,7 +7,7 @@ function Particle(x, y, firework) {
         this.velocity = createVector(0, random(-19, -5));
     } else {
         this.velocity = p5.Vector.random2D();
-        this.velocity.mult(random(1, 6));
+        this.velocity.mult(random(2, 10));
     }
     this.acceleration = createVector(0, 0);
 
@@ -17,12 +17,19 @@ function Particle(x, y, firework) {
 
     this.update = function() {
         if (!this.firework) {
-            this.velocity.mult(0.85);
+            this.velocity.mult(0.9);
             this.lifespan -= 4;
         }
         this.velocity.add(this.acceleration);
         this.position.add(this.velocity);
         this.acceleration.mult(0);
+    }
+
+    this.done = function() {
+        if (this.lifespan < 0) {
+            return true
+        }
+        return false;
     }
 
     this.show = function() {
