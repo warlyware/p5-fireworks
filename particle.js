@@ -1,6 +1,6 @@
 function Particle(x, y) {
     this.position = createVector(x, y);
-    this.velocity = createVector(0, random(-15, -5));
+    this.velocity = createVector(0, random(-19, -5));
     this.acceleration = createVector(0, 0);
 
     this.applyForce = function(force) {
